@@ -1,0 +1,15 @@
+h1 {
+    color: red;
+    text-align: center;
+}
+
+.panel-body {
+    background-color: rgba(158, 98, 25, 0.3);
+    padding: 30px;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+    justify-content: center;
+}
