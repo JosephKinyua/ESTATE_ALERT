@@ -1,0 +1,76 @@
+
+{% extends 'all-alerts/base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="row hoodinfo">
+    <div class="col-md-6 p-3">
+      <h6>Hood name:</h6>
+      <h1 class="hoodname">{{ neighdetails.name }}</h1>
+      <p>Location: {{ neighdetails.location }}</p>
+    </div>
+    <div class="col-md-6 p-2">
+      <h6>Police Helpline:</h6>
+      <i class="fad fa-phone"></i><a href="tel:+{{ neighdetails.policehelpline }}"> +254-{{ neighdetails.policehelpline }}</a>
+      <p></p>
+      <h6>Hospital Helpline</h6>
+      <i class="fad fa-phone"></i><a href="tel:+{{ neighdetails.hospitalhelpline }}"> +254-{{ neighdetails.hospitalhelpline }}</a>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="p-3">
+  <div class="container">
+    <div class="separator mt-md-5 mb-md-5">Business</div>
+  </div>
+  <form class="form-inline d-flex flex-column justify-content-center align-items-center searchdivform p-2" role="search" action='{% url "search" %}'>
+    <div class="searchform">
+      <div class="search">
+        <input class="form-control" name="search" type="search" placeholder="Search Business..." aria-label="Search">
+        <button type="submit" class="searchButton btn"><i class="fad fa-search"></i></button>
+      </div>
+    </div>
+  </form>
+
+  <div>
+    <div class="wrapper d-flex">
+      {% for business in businesses %}
+      <div class="item p-2 m-2">
+        <h4>{{ business.businessname|capfirst }}</h4>
+        <p>Description: {{ business.description }}</p>
+        <p>Seller: {{ business.username }}</p>
+        <sub><i class="fad fa-envelope"></i> {{ business.email }}</sub><br>
+      </div>
+      {% empty %}
+      <p class="alert alert-info text-center">You don't have any Business SetUp</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="p-3">
+<div class="container">
+  <div class="separator mt-md-5 mb-md-5">Stories</div>
+</div>
+
+<div>
+  <div class="wrapper-grid justify-content-center align-items-center mb-5 container">
+    {% for story in stories %}
+    <div class="story mr-3 mt-2 p-2">
+      <h5>{{ story.posttitle|capfirst }}</h5>
+      <p>{{ story.story }}</p>
+      <sub>By {{ story.postuser }}</sub>
+    </div>
+    {% empty %}
+    <div class="container">
+      <h6 class="alert alert-info text-center">No Mushene Available</h6>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+{% endblock %}
