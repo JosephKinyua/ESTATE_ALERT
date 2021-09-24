@@ -4,7 +4,7 @@ h1 {
 }
 
 .panel-body {
-    background-color: rgb(243, 196, 67, 0.5);
+    background-color: rgb(243, 196, 67, 0.7);
     padding: 30px;
     border-radius: 18px;
     -webkit-border-radius: 18px;
@@ -12,4 +12,13 @@ h1 {
     -ms-border-radius: 18px;
     -o-border-radius: 18px;
     justify-content: center;
+    color: aliceblue;
+}
+
+body {
+    background-image: url(../images/security.jpeg);
+}
+
+h3 {
+    color: white;
 }

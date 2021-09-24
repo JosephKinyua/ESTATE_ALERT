@@ -17,7 +17,7 @@
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
                         {% if form.errors %}
-                        <p> Password or Username is incorrect </p>
+                        <p style="color:red;"> Password or Username is incorrect </p>
                         {% endif %}
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -28,7 +28,7 @@
                                     {% csrf_token %} {% bootstrap_form form%}
 
                                     <span><a href="/accounts/register/" class="btn btn-primary">Signup</a></span>
-                                    <span>Don't have an account?<a href="/accounts/register/" style="text-decoration:none">Join us</a></span>
+                                    <span style="font-size:14px;">Don't have an account?<a href="/accounts/register/" style="text-decoration:none">Join us</a></span>
                                     <input type="hidden" name="next" value="{{next}}">
                                 </form>
 
