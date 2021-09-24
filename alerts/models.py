@@ -71,3 +71,17 @@ class Business(models.Model):
     email = models.EmailField(max_length=200)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return self.businessname
+
+    def save_business(self):
+        self.save()
+
+    @classmethod
+    def delete_business(cls, id): 
+        cls.objects.filter(id=id).delete()
+
+    @classmethod
+    def searchbusiness(cls, searchterm):
+        searchresults = cls.objects.filter(Q(businessname__icontains = searchterm))
+        return searchresults
