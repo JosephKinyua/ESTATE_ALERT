@@ -86,3 +86,8 @@ class Business(models.Model):
         searchresults = cls.objects.filter(Q(businessname__icontains = searchterm))
         return searchresults
 class Post(models.Model):
+    posttitle = models.CharField(max_length=200, null=False, blank=False)
+    story = models.TextField()
+    timeuploaded = models.DateTimeField(auto_now_add=True)
+    postuser = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, null=True)
