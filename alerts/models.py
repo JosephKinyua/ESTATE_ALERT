@@ -85,3 +85,4 @@ class Business(models.Model):
     def searchbusiness(cls, searchterm):
         searchresults = cls.objects.filter(Q(businessname__icontains = searchterm))
         return searchresults
+class Post(models.Model):
