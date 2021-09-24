@@ -91,3 +91,13 @@ class Post(models.Model):
     timeuploaded = models.DateTimeField(auto_now_add=True)
     postuser = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.posttitle
+
+    def save_post(self):
+        self.save()
+
+    @classmethod
+    def delete_post(cls, id):
+        cls.objects.filter(id=id).delete()
