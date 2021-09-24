@@ -23,6 +23,10 @@ class Category(models.Model):
 class Neighborhood(models.Model):
     name = models.CharField(max_length=200)
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    policehelpline = models.IntegerField(null=True, blank=True)
+    hospitalhelpline = models.IntegerField(null=True, blank=True)
+    occupants = models.IntegerField(default=0, null=True)
+
 
     def __str__(self):
             return self.name
