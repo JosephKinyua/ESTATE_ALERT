@@ -21,3 +21,21 @@ class Neighborhood(models.Model):
     name = models.CharField(max_length=200)
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
 
+    def __str__(self):
+            return self.name
+
+    def create_neighborhood(self):
+        self.save()
+
+    @classmethod
+    def delete_neighborhood(cls, id):
+        cls.objects.filter(id=id).delete()
+
+    @classmethod
+    def find_neighborhood(cls, searchterm):
+        searchresults = cls.objects.filter(Q(name__icontains=searchterm))
+        return searchresults
+
+    @classmethod
+    def update_neighborhood(cls, id, name):
+        cls.objects.filter(id=id).update(name=name)
