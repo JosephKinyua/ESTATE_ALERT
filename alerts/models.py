@@ -63,3 +63,5 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.username
+
+class Business(models.Model):
