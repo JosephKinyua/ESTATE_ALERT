@@ -42,3 +42,9 @@ class Neighborhood(models.Model):
         cls.objects.filter(id=id).update(name=name)
 
 class Profile(models.Model):
+    username = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    bio = models.TextField()
+    phone = models.IntegerField(null=True, blank=True)
+    profilePic = models.ImageField(upload_to='userProfile/', default='userProfile/test.png')
+    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.SET_NULL, null=True, blank=True)
