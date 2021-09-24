@@ -65,3 +65,9 @@ class Profile(models.Model):
         return self.username
 
 class Business(models.Model):
+    businessname = models.CharField(max_length=200)
+    category = models.ManyToManyField(Category, blank=True)
+    description = models.TextField()
+    email = models.EmailField(max_length=200)
+    username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, null=True)
