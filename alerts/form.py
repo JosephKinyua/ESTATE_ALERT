@@ -19,3 +19,9 @@ class BusinessForm(forms.ModelForm):
         model = Business
         fields = '__all__'
         exclude = ['username', 'neighborhood', 'category']
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('posttitle', 'story', )
+        exclude = ['postuser', 'neighborhood']
