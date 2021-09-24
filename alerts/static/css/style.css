@@ -13,12 +13,19 @@ h1 {
     -o-border-radius: 18px;
     justify-content: center;
     color: aliceblue;
+    width: 120%;
 }
 
 body {
-    background-image: url(../images/security.jpeg);
+    background-image: url(../images/alerts.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h3 {
+    color: white;
+}
+
+.nav-item a {
     color: white;
 }

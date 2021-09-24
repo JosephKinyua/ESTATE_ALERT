@@ -40,3 +40,5 @@ class Neighborhood(models.Model):
     @classmethod
     def update_neighborhood(cls, id, name):
         cls.objects.filter(id=id).update(name=name)
+
+class Profile(models.Model):
