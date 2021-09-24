@@ -18,4 +18,6 @@ class Category(models.Model):
         return self.category
 
 class Neighborhood(models.Model):
+    name = models.CharField(max_length=200)
+    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
 
