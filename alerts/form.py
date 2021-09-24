@@ -13,3 +13,9 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = '__all__'
         exclude = ['username', 'count',]
+
+class BusinessForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields = '__all__'
+        exclude = ['username', 'neighborhood', 'category']
