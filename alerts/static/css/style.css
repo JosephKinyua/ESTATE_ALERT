@@ -4,7 +4,7 @@ h1 {
 }
 
 .panel-body {
-    background-color: rgb(243, 196, 67, 0.7);
+    background-color: rgba(204, 167, 111, 0.8);
     padding: 30px;
     border-radius: 18px;
     -webkit-border-radius: 18px;
@@ -12,14 +12,14 @@ h1 {
     -ms-border-radius: 18px;
     -o-border-radius: 18px;
     justify-content: center;
-    color: aliceblue;
     width: 120%;
 }
 
 body {
-    background-image: url(../images/alerts.jpg);
+    background-image: url(../images/estate1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 h3 {
@@ -28,4 +28,24 @@ h3 {
 
 .nav-item a {
     color: white;
+}
+
+.wrap {
+    background-color: rgba(204, 167, 111, 0.8);
+    margin: 0px 20px 0px 20px;
+    border-radius: 0px 18px 18px 18px;
+    -webkit-border-radius: 0px 18px 18px 18px;
+    -moz-border-radius: 0px 18px 18px 18px;
+    -ms-border-radius: 0px 18px 18px 18px;
+    -o-border-radius: 0px 18px 18px 18px;
+}
+
+.userdetails img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    width: 100px;
+    height: 100px;
 }
