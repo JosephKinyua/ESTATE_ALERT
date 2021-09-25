@@ -27,3 +27,54 @@ def index(request):
             'stories': stories,
         }
         return render(request, 'index.html', params)
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    print(request.GET)
+    if request.method == 'POST':
+        print(request.POST)
+        userform = UserForm(request.POST or None, instance=request.user)
+        profileform = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        businessform = BusinessForm(request.POST)
+        postiiform = PostForm(request.POST)
+
+        curr_neighborhood = request.user.profile.neighborhood
+
+        if userform.is_valid and profileform.is_valid():
+            userform.save()
+            profileform.save()
+            messages.success(request, 'Profile updated successfully')
+
+        if businessform.is_valid():
+            busi = businessform.save(commit=False)
+            busi.username = request.user
+            busi.neighborhood = curr_neighborhood
+            busi.save()
+
+        if postiiform.is_valid():
+            post = postiiform.save(commit=False)
+            post.postuser = request.user
+            post.neighborhood = curr_neighborhood
+            post.save()
+
+        return redirect('uprofile')
+        
+    curr_user = Profile.objects.get(username=request.user)
+    userform = UserForm(instance=request.user)
+    profileform = ProfileForm(instance=request.user.profile)
+    businessform = BusinessForm()
+    postiiform = PostForm()
+
+    allbusiness = Business.objects.filter(username=request.user)
+    stories = Post.objects.filter(postuser=request.user)
+
+    params = {
+        'curr_user': curr_user,
+        'userform': userform,
+        'profileform': profileform,
+        'businessform': businessform,
+        'postiiform': postiiform,
+        'allbusiness': allbusiness,
+        'stories': stories
+    }
+    return render(request, 'profile/index.html', params)
