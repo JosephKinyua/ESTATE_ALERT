@@ -1,0 +1,20 @@
+
+{% extends 'all-alerts/base.html' %}
+
+{% block content %}
+  <h1 class="text-center mt-5 mb-5">Search for {{ search_term }}</h1>
+  <div class="container-fluid mb-5">
+    <div class="wrapper-grid justify-content-center align-items-center text-center mb-5">
+      {% for business in searchresults %}
+      <div class="item p-2 m-2">
+        <h4>{{ business.businessname|capfirst }}</h4>
+        <p>Description: {{ business.description }}</p>
+        <p>Seller: {{ business.username }}</p>
+        <sub><i class="fad fa-envelope"></i> {{ business.email }}</sub><br>
+      </div>
+      {% empty %}
+      <p class="alert alert-info text-center">No Search Results for {{ search_term }}</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
