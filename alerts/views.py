@@ -11,7 +11,7 @@ def home(request):
 @login_required(login_url='/accounts/login/')
 def index(request):
     if request.user.profile.neighborhood == None:
-        messages.success(request, 'Please fill out you Neighborhood')
+        messages.success(request, 'Please fillout you Neighborhood')
         return redirect('uprofile')
     else:
         neighdetails = Neighborhood.objects.get(
