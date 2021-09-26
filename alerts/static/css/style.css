@@ -1,6 +1,7 @@
 h1 {
-    color: red;
+    color: green;
     text-align: center;
+    text-shadow: 2px 5px 5px rgb(38, 206, 218);
 }
 
 .panel-body {
