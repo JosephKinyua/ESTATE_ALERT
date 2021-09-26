@@ -78,3 +78,13 @@ def profile(request):
         'stories': stories
     }
     return render(request, 'profile/index.html', params)
+
+@login_required(login_url='/accounts/login/')
+def search(request):
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search')
+        searchresults = Business.searchbusiness(search_term)
+        return render(request, 'search.html', {'searchresults': searchresults, 'search_term': search_term})
+    else:
+          return redirect('home')
+
