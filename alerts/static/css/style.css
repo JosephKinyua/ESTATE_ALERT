@@ -1,7 +1,14 @@
 h1 {
     color: green;
     text-align: center;
-    text-shadow: 2px 5px 5px rgb(38, 206, 218);
+    text-shadow: 2px 2px 2px whitesmoke;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 1px whitesmoke;
+    font-size: 36px;
 }
 
 .panel-body {
@@ -21,10 +28,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-h3 {
-    color: white;
 }
 
 .nav-item a {
@@ -49,4 +52,14 @@ h3 {
     -o-border-radius: 50%;
     width: 100px;
     height: 100px;
+}
+
+.container {
+    background-color: rgba(214, 101, 14, 0.1);
+    padding: 20px;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
 }

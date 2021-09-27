@@ -28,9 +28,9 @@
                                     {% csrf_token %} {% bootstrap_form form%}
 
                                      <div class="form-group">
-                                    <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                                    <input type="submit" class="btn btn-success btn-sm" value="Login">
                                 </div> 
-                                    <span style="font-size:14px;">Don't have an account?<a href="/accounts/register/" style="text-decoration:none">Join us</a></span>
+                                    <span style="font-size:14px;">Don't have an account?<a href="/accounts/register/" style="text-decoration:none;color:green;">Join us</a></span>
                                     <input type="hidden" name="next" value="{{next}}">
                                 </form>
 
